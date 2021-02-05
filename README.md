@@ -1,4 +1,4 @@
-# WebpackSettings
+# WebpackTemplate
 
 ## Сборка проекта Webpack
 
