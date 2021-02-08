@@ -60,7 +60,10 @@ module.exports = {
 
     optimization: optimization(),
 
+    devtool: isDev? "source-map": false,
+
     devServer: {
+        overlay: true,
         historyApiFallback: true,
         // hot: isDev,
         compress: true,
@@ -74,7 +77,6 @@ module.exports = {
         new CopyWebpackPlugin({
                 patterns: [
                     {from: path.resolve(__dirname, 'src/assets/img/favicon.ico'), to: path.resolve(__dirname, 'dist/assets/img/')},
-                    // {from: path.resolve(__dirname, 'dist/index.js'), to: path.resolve(__dirname, 'dist/assets/js/')}
                 ]
             }
         ),
@@ -100,6 +102,12 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ],
+            },
+
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: '/node_modules/'
             },
 
             {
