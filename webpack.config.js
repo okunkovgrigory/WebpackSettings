@@ -53,8 +53,8 @@ module.exports = {
         index: './index.js',
     },
     output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'dist'),
+        filename: './assets/js/[name].js',
+        path: path.resolve(__dirname, 'dist/'),
         publicPath: ""
     },
 
@@ -81,7 +81,7 @@ module.exports = {
             }
         ),
         new MiniCssExtractPlugin({
-            filename: './assets/css/[name].css'
+            filename: 'assets/css/[name].css'
         })
     ].concat(htmlPlugins),
 
@@ -95,7 +95,7 @@ module.exports = {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
                             publicPath: (resourcePath, context) => {
-                                return path.relative(path.dirname(resourcePath), context) + '/';
+                                return path.relative(path.dirname(resourcePath), context).replace('\\', '/') + "/";
                             },
                         },
                     },
