@@ -1,3 +1,4 @@
+import 'bootstrap';
 import Post from './assets/js/Post.js';
 import './assets/sass/style.sass';
 
@@ -7,5 +8,6 @@ console.log(post.toString());
 
 let add = (a, b) => a + b;
 
-console.log(add(5, 7));
+alert(add(5, 7));
+
 

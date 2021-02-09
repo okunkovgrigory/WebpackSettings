@@ -65,7 +65,6 @@ module.exports = {
     devServer: {
         overlay: true,
         historyApiFallback: true,
-        // hot: isDev,
         compress: true,
         open: true,
         port: 5000
@@ -133,5 +132,10 @@ module.exports = {
             },
 
         ]
-    }
+    },
+
+    resolve: {
+        extensions: [".js"]
+    },
+    target: ['es5']
 };
